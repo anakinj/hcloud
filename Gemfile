@@ -17,6 +17,7 @@ group :development, :test do
   gem "iconv", require: false
   gem "rake", require: false
   gem "rspec", require: false
+  gem "rspec-wait", require: false
   gem "rubocop", require: false
   gem "rubocop-performance", require: false
   gem "rubocop-rspec", require: false

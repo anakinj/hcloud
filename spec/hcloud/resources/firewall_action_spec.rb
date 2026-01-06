@@ -5,7 +5,7 @@ RSpec.describe HCloud::Firewall, :integration, order: :defined do
 
   before(:all) do
     firewall = described_class.create(name: "firewall")
-    server = HCloud::Server.create(name: "server", image: "debian-11", server_type: "cx11", location: "nbg1")
+    server = HCloud::Server.create(name: "server", image: IntegrationDefaults.image, server_type: IntegrationDefaults.server_type, location: "nbg1")
   end
 
   it "lists actions" do

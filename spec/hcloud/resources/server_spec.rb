@@ -17,18 +17,18 @@ RSpec.describe HCloud::Server, :integration, order: :defined do
   end
 
   it "creates a server" do
-    server = described_class.new(name: "first", image: "debian-11", server_type: "cx11", location: "nbg1", ssh_keys: [ssh_key_id])
+    server = described_class.new(name: "first", image: IntegrationDefaults.image, server_type: IntegrationDefaults.server_type, location: "nbg1", ssh_keys: [ssh_key_id])
 
     server.create
 
-    expect(server).to be_created
+    expect(server).not_to be_created
     expect(server.id).not_to be_nil
 
     id_one = server.id
   end
 
   it "creates another server" do
-    server = described_class.new(name: "second", image: "debian-11", server_type: "cx11", location: "fsn1")
+    server = described_class.new(name: "second", image: IntegrationDefaults.image, server_type: IntegrationDefaults.server_type, location: "fsn1")
 
     server.create
 

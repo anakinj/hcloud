@@ -7,6 +7,9 @@ RSpec.configure do |config|
   config.before(:context, :integration) do
     @client = HCloud::Client.connection
 
+    config.wait_timeout = 30 # seconds
+    config.wait_delay = 5 # seconds
+
     # Set client
     HCloud::Client.connection = HCloud::Client.new(
       access_token: ENV.fetch("HCLOUD_TOKEN"),

@@ -10,7 +10,7 @@ RSpec.describe HCloud::Datacenter, :integration, order: :defined do
   it "sorts datacenters" do
     datacenters = described_class.all.sort(name: :desc)
 
-    expect(datacenters.first.name).to eq "nbg1-dc3"
+    expect(datacenters.first.name).to eq "sin-dc1"
   end
 
   it "filters datacenters" do
@@ -24,7 +24,7 @@ RSpec.describe HCloud::Datacenter, :integration, order: :defined do
     datacenter = described_class.find(2)
 
     expect(datacenter.name).to eq "nbg1-dc3"
-    expect(datacenter.description).to eq "Nuremberg 1 DC 3"
+    expect(datacenter.description).to eq "Nuremberg 1 virtual DC 3"
 
     expect(datacenter.location.id).to eq 2
     expect(datacenter.location.name).to eq "nbg1"

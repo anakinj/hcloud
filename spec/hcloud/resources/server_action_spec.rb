@@ -5,12 +5,12 @@ RSpec.describe HCloud::Server, :integration, order: :defined do
 
   before(:all) do
     ssh_key = HCloud::SSHKey.create(name: "SSH Key", public_key: File.read(HCloud.root.join("spec/fixtures/one.pub")))
-    server = described_class.create(name: "server", image: "debian-11", server_type: "cx11", location: "nbg1", ssh_keys: [ssh_key])
+    server = described_class.create(name: "server", image: IntegrationDefaults.image, server_type: IntegrationDefaults.server_type, location: "nbg1", ssh_keys: [ssh_key])
   end
 
   it "lists actions" do
     expect(server.actions.count).to eq 2
-    expect(server.actions.map(&:command)).to contain_exactly("start_resource", "create_resource")
+    expect(server.actions.map(&:command)).to contain_exactly("start_server", "create_server")
   end
 
   it "finds action" do

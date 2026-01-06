@@ -43,7 +43,7 @@ RSpec.describe HCloud::Pricing, :integration, order: :defined do
     # Server Types
     expect(pricing.server_types).not_to be_empty
 
-    server_type_type = pricing.server_types.find { |st| st.name == "cx11" }
+    server_type_type = pricing.server_types.find { |st| st.name == "cax11" }
     expect(server_type_type.prices).not_to be_empty
 
     server_type_type_price = server_type_type.prices.find { |price| price.location == "fsn1" }

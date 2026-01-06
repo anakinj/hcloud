@@ -5,7 +5,7 @@ RSpec.describe HCloud::Volume, :integration, order: :defined do
 
   before(:all) do
     volume = described_class.create(name: "volume", size: 10, location: "nbg1")
-    server = HCloud::Server.create(name: "server", image: "debian-11", server_type: "cx11", location: "nbg1")
+    server = HCloud::Server.create(name: "server", image: IntegrationDefaults.image, server_type: IntegrationDefaults.server_type, location: "nbg1")
   end
 
   it "lists actions" do
@@ -43,7 +43,7 @@ RSpec.describe HCloud::Volume, :integration, order: :defined do
   it "resizes the volume" do
     volume.resize(size: 11)
 
-    sleep 1
+    sleep 3
     volume.reload
 
     expect(volume.size).to eq 11

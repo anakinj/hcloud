@@ -17,7 +17,7 @@ RSpec.describe HCloud::Location, :integration, order: :defined do
   it "sorts locations" do
     locations = described_class.all.sort(name: :desc)
 
-    expect(locations.first.name).to eq "nbg1"
+    expect(locations.first.name).to eq "sin"
   end
 
   it "finds locations" do

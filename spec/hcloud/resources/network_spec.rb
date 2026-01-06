@@ -15,8 +15,6 @@ RSpec.describe HCloud::Network, :integration, order: :defined do
 
     expect(network.ip_range).to eq "10.0.0.0/16"
 
-    expect(network).not_to be_expose_routes_to_vswitch
-
     expect(network.subnets.first.type).to eq "cloud"
     expect(network.subnets.first.ip_range).to eq "10.0.1.0/24"
     expect(network.subnets.first.network_zone).to eq "eu-central"

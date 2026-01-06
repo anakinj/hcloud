@@ -17,7 +17,7 @@
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 require "webmock/rspec"
-
+require "rspec-wait"
 require "dotenv/load"
 
 require "timecop"
